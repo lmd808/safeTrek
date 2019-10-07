@@ -1,2 +1,2 @@
-# safetrek
-my project one traking app 
+# safeTrek
+My 1st project 
