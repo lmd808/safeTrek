@@ -43,3 +43,12 @@ body {
 #init {
 	padding-top: 50px;
 }
+
+#init,
+#divOne,
+#divOneL,
+#divTwo,
+#divThree,
+#divFour {
+	margin-left: 10px;
+}
