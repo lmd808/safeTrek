@@ -7,8 +7,36 @@ $(document).ready(function() {
 	$('#divOneL').hide();
 });
 
+const accountDetails = document.querySelector('#accountDetails');
+
 var posi;
-// id;
+var id;
+// I genuinely don't know how ths is working
+// I literaly tried 1000 different things
+var contactEmail;
+
+const setupUI = (user) => {
+	if (user) {
+		db.collection('users').doc(user.uid).get().then((doc) => {
+			const html = `
+			<div class="list-group-item list-item" style="text-indent: 1em">
+				Logged in as: ${user.email}
+			</div>
+			<div class="list-group-item list-item" style="text-indent: 1em">
+				Contact E-mail: <span id=>${doc.data().contact}</span>
+			</div>
+			`;
+			accountDetails.innerHTML = html;
+		});
+
+		Email = db.collection('users').doc(user.uid).get().then(function(doc) {
+			contactEmail = doc.data().contact;
+		});
+	} else {
+		accountDetails.innerHTML = '';
+	}
+	return contactEmail;
+};
 
 $('#logInit').on('click', function() {
 	$('#divOneL').show();
@@ -25,6 +53,7 @@ $('#location').on('click', function(event) {
 	event.preventDefault();
 	getLocation();
 });
+
 //********************************************************************
 //********************************************************************
 //********************************************************************
@@ -36,7 +65,7 @@ function getLocation() {
 	if (navigator.geolocation) {
 		//the watchposition() method show the position of the user and update it while is moving
 		id = navigator.geolocation.watchPosition(showPosition);
-		// email();
+		email();
 	} else {
 		//If not, display a message to the user
 		$('#testCord').html('Geolocation is not supported by this browser.');
@@ -46,20 +75,20 @@ function getLocation() {
 //The showPosition() function outputs the Latitude and Longitude
 function showPosition(position) {
 	posi = $('#textCord').html(`Latitude: ${position.coords.latitude} <br> Longitude: ${position.coords.longitude}`);
-	console.log(posi);
-	console.log(JSON.stringify(posi[0]));
-	email(JSON.stringify(posi));
+	// console.log(posi);
+	// console.log(JSON.stringify(posi[0]));
+	// email(JSON.stringify(posi));
 }
 
-function email(location) {
-	console.log(location);
-	let templateParams = {
-		// to: user.email
-		to: 'lditom808@gmail.com',
+function email(id) {
+	console.log(contactEmail);
+	// template params
+	var templateParams = {
+		to: contactEmail,
 		subject: 'New e-mail alert from SafeTrek',
 		html: `
 		<h2>Location alert from SafeTrek</h2>
-		<p>${JSON.stringify(posi)}/p>`
+		<p>${JSON.stringify(id)}/p>`
 	};
 	emailjs.send('default_service', 'template_3bDgeTFE', templateParams).then(
 		function(response) {
@@ -82,28 +111,11 @@ function email(location) {
 //********************************************************************
 //********************************************************************
 
-//  text message
-
-// var twilio = require('twilio');
-
-// var accountSid = 'AC6d1fdb13caf5d64c78c33de472cccd2a'; // Your Account SID from www.twilio.com/console
-// var authToken = '2762d2d0446ddca7e98590e3623c14a6'; // Your Auth Token from www.twilio.com/console
-
-// var twilio = require('twilio');
-// var client = new twilio(accountSid, authToken);
-
-// client.messages
-// 	.create({
-// 		body: 'Hello from Node',
-// 		to: '+17323797526', // Text this number
-// 		from: '+15203415162' // From a valid Twilio number
-// 	})
-// 	.then((message) => console.log(message.sid));
-
 $('#extrasButton').on('click', function() {
 	$('#divThree').show();
 	$('#home').show();
 	$('#extrasButton').hide();
+	$('#accountinfodiv').hide();
 	$('#hotline').hide();
 	$('#public').hide();
 	$('#care').hide();
@@ -205,22 +217,6 @@ function healthArt() {
 		}
 	});
 }
-
-// function renderHotline() {
-// 	$('#generateHotline').empty();
-// 	for (var i = 0; i < hotlineArray.length; i++) {
-// 		// create new list item
-// 		var newLi = $('<li>');
-// 		// add class to list item
-// 		newLi.addClass('list-group-item list-item');
-// 		// add attribute to list item
-// 		newLi.attr('data-name', hotlineArray[i]);
-// 		// add text to list item
-// 		newLi.text(hotlineArray[i]);
-// 		// add list item to div
-// 		$('#generateHotline').prepend(newLi);
-// 	}
-// }
 
 $('#recipes').on('click', function() {
 	$('#public').hide();
@@ -339,6 +335,15 @@ $('#future').on('click', function() {
 	$('#care').hide();
 	$('#food').hide();
 	$('#fut').show();
+});
+
+$('#accountinfo').on('click', function() {
+	$('#public').hide();
+	$('#hotline').hide();
+	$('#care').hide();
+	$('#food').hide();
+	$('#fut').hide();
+	$('#accountinfodiv').show();
 });
 
 // const guidelist = document.querySelector('.guides');

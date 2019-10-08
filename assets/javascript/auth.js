@@ -1,5 +1,6 @@
 // get data
-// db.collection('guides').get().then((snapshot) => {
+// .onsnapshot allows real time updating from firebase onto our webpage
+// db.collection('guides').onsnapshot(snapshot) => {
 // 	setupGuides(snapshot.docs);
 // 	//cycle through the documents
 // });
@@ -8,11 +9,13 @@
 auth.onAuthStateChanged((user) => {
 	if (user) {
 		console.log('user logged in');
+		setupUI(user);
 		$('#init').hide();
 		$('#divTwo').show();
 		$('#home').hide();
 		$('#divFour').show();
 	} else {
+		setupUI();
 		console.log('user logged out');
 	}
 });
@@ -25,16 +28,24 @@ signupForm.addEventListener('submit', function(e) {
 
 	// get user info
 	const email = signupForm['signup-email'].value;
-	let contact = signupForm['signup-contact'].value;
+
 	const password = signupForm['signup-pass'].value;
 	// create a user account
-	auth.createUserWithEmailAndPassword(email, password).then(function(cred) {
-		signupForm.reset();
-		$('#divTwo').show();
-		$('#divFour').show();
-		$('#divOne').hide();
-		$('#home').hide();
-	});
+	auth
+		.createUserWithEmailAndPassword(email, password)
+		.then(function(cred) {
+			return db.collection('users').doc(cred.user.uid).set({
+				contact: signupForm['signup-contact'].value
+				// I can add more info later name, address, contact name
+			});
+		})
+		.then(() => {
+			signupForm.reset();
+			$('#divTwo').show();
+			$('#divFour').show();
+			$('#divOne').hide();
+			$('#home').hide();
+		});
 });
 
 // logout
@@ -66,12 +77,6 @@ loginForm.addEventListener('submit', function(e) {
 			$('#divFour').show();
 			$('#divOneL').hide();
 		} else {
-			// $('myModalLogin').show();
 		}
 	});
 });
-
-// $('#goToSignUp').on('click', function() {
-// 	$('#divOneL').hide();
-// 	$('#divOne').show();
-// });
