@@ -7,15 +7,12 @@ $(document).ready(function() {
 	$('#divOneL').hide();
 });
 
-const accountDetails = document.querySelector('#accountDetails');
-
-var posi;
+var accountDetails = document.querySelector('#accountDetails');
 var id;
-// I genuinely don't know how ths is working
-// I literaly tried 1000 different things
 var contactEmail;
 
-const setupUI = (user) => {
+// this function pulls info from the data base and forced my contactEmail out of the database
+function setupUI(user) {
 	if (user) {
 		db.collection('users').doc(user.uid).get().then((doc) => {
 			const html = `
@@ -36,19 +33,23 @@ const setupUI = (user) => {
 		accountDetails.innerHTML = '';
 	}
 	return contactEmail;
-};
+}
 
+//click event from init (click login in to login)
 $('#logInit').on('click', function() {
 	$('#divOneL').show();
 	$('myModalLogin').hide();
 	$('#init').hide();
 });
 
+//click event from init (click sign in to sign up)
 $('#signInit').on('click', function() {
 	$('#divOne').show();
 	$('#init').hide();
 });
 
+// in dive two now
+//click the location button to get location
 $('#location').on('click', function(event) {
 	event.preventDefault();
 	getLocation();
@@ -60,11 +61,14 @@ $('#location').on('click', function(event) {
 //********************************************************************
 //********************************************************************
 
+// get location
+
 function getLocation() {
-	//Check if Geolocation is supported
+	//Check if Geolocation is supported and allowed
 	if (navigator.geolocation) {
 		//the watchposition() method show the position of the user and update it while is moving
 		id = navigator.geolocation.watchPosition(showPosition);
+		// call email (this should be moved)
 		email();
 	} else {
 		//If not, display a message to the user
@@ -74,27 +78,36 @@ function getLocation() {
 
 //The showPosition() function outputs the Latitude and Longitude
 function showPosition(position) {
-	posi = $('#textCord').html(`Latitude: ${position.coords.latitude} <br> Longitude: ${position.coords.longitude}`);
+	$('#textCord').html(`Latitude: ${position.coords.latitude} <br> Longitude: ${position.coords.longitude}`);
 	// console.log(posi);
 	// console.log(JSON.stringify(posi[0]));
 	// email(JSON.stringify(posi));
 }
 
+// automatically sends an email
 function email(id) {
+	// remove later - using for class demo
 	console.log(contactEmail);
 	// template params
 	var templateParams = {
+		// who is the email going to?
 		to: contactEmail,
+		// subject
 		subject: 'New e-mail alert from SafeTrek',
+		// body
 		html: `
 		<h2>Location alert from SafeTrek</h2>
 		<p>${JSON.stringify(id)}/p>`
 	};
+
+	// send - takes three arguments
+	// gmail, template, tmplate params from above
 	emailjs.send('default_service', 'template_3bDgeTFE', templateParams).then(
+		// promise function
 		function(response) {
-			console.log(posi);
-			console.log(location);
+			// log sucess
 			console.log('SUCCESS!', response.status, response.text);
+			//
 			navigator.geolocation.clearWatch(id);
 		},
 		function(error) {
