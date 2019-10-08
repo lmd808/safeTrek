@@ -44,7 +44,7 @@ body {
 	padding-top: 50px;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 300px) {
 	#init,
 	#divOne,
 	#divOneL,
