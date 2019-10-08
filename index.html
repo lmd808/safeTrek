@@ -12,6 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assests/css/animate.css" />
+    <link rel="stylesheet" href="assests/css/style.css"/>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
@@ -21,7 +22,7 @@
           emailjs.init("user_LZGYLOBggL5FCDw6Woxte");
        })();
     </script>
-        <link rel="stylesheet" href="assests/css/style.css"/>
+       
     <title>safeTrek</title>
   </head>
   <body>
@@ -31,26 +32,31 @@
       <div class="col-1" id="myHeader">
           <h2>safeTrek</h2>
           <h6><em>Trek Safely</em></h6>
-        <!-- <img src="assets/images/bear.gif" alt="a duck trecking along" width="50px" height="75px;"> -->
       </div>
       <div class="col-1">
-          <!-- <h2>safeTrek</h2>
-          <h6><em>Trek Safely</em></h6> -->
       </div>
     </div>
+
+
+
+    <!-- this is the content that appears in innit (initial loading of the page) -->
     <div class="container">
     <div class="row" id="init">
-        <button class="btn-secondary btn-lg btn-block" id="logInit">Login?</button>
-        <button class="btn-secondary btn-lg btn-block" id="signInit">SignUp</button>
+        <button class="btn-dark btn-lg btn-block" id="logInit">Login?</button>
+        <button class="btn-dark btn-lg btn-block" id="signInit">SignUp</button>
     </div>
     </div>
+
+
+
+
     <!--this coutainer will house my login div   -->
     <div class="container" id="divOne">
       <!-- this is my header -->
       <div class="row justify-content-center">
       </div>
 
-      <!-- this is my login section  -->
+      <!-- this is my sign up form section  -->
       <div class="row">
         <div class="col-sm-12">
           <div class="card-header ch" style="background-color: rgba(255,255,255,.7)">
@@ -66,7 +72,7 @@
                   <div class="form-group">
                       <label for="exampleInputEmail1">Contact Email address</label>
                       <input type="email" class="form-control" id ="signup-contact" aria-describedby="emailHelp" placeholder="Enter email">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      <small id="emailHelp" class="form-text text-muted"></small>
                     </div>  
                   <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
@@ -74,7 +80,7 @@
                   </div>
                   <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    <label class="form-check-label" for="exampleCheck1">Save Login info?</label>
                   </div>
                   <button type="submit" class="btn btn-dark" id="loginButton">Submit</button>
                 </form>
@@ -82,7 +88,12 @@
         </div>
       </div>
     </div>  
-    <!-- this is going to be the container for my login form my sign up oform is the container above -->
+
+
+
+
+
+    <!-- this is going to be the container login form -->
     <div class="container" id="divOneL">
     <div class="row">
       <div class="col-sm-12">
@@ -102,87 +113,79 @@
               </div>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" >
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <label class="form-check-label" for="exampleCheck1">Save Login info?</label>
               </div>
               <button type="submit" class="btn btn-dark" id="loginButton2">Submit</button>
             </form>
         </div>
-        <!-- <div class="modal" tabindex="-1" role="dialog" id="myModalLogin">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">No Current Account!</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>Oh No! You don't seem to have an account with us. Click the Link Below to sign up with SafeTrek</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" id="goToSignUp">Go To SignUp</button>
-                </div>
-              </div>
-            </div>
-          </div> -->
+
     </div>
     </div>
   </div>  
+
+
     <!-- this container will house my trac and location div   -->
     <div class="container " id="divTwo">
+    
+    
       <!-- location -->
-      <div class="jumbotron jumbotron-fluid" >
+      <div class= "jumbotron jumbotron-fluid" style="background-color: rgba(0,0,0,.4)">
         <div class="container">
           <h1 class="display-4">Send Location</h1>
           <p class="lead">
-              <button class="btn-secondary btn-lg btn-block" id="location">Send your location to your Contacts</button> 
+              <button class="btn-dark btn-lg btn-block" id="location">Send your location to your Contacts</button> 
           </p>
           <p class="lead" id="textCord">
               
           </p>
         </div>
       </div>
-      <!-- Track mode -->
-      <div class="jumbotron jumbotron-fluid">
+
+    
+    
+      <!-- Call 911 -->
+      <div class="jumbotron jumbotron-fluid" style="background-color: rgba(0,0,0,.4)">
         <div class="container">
           <h1 class="display-4">Call 911</h1>
           <p class="lead">
-              <a href="tel:+7323797526"> <button class="btn-secondary btn-lg btn-block" id="911">Click to call 911!</button> </a> 
+              <a href="tel:+7323797526"> <button class="btn-dark btn-lg btn-block" id="911">Click to call 911!</button> </a> 
           </p>
         </div>
       </div>
       </div>
-      <!-- add and update contact -->
-      <!-- <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Contacts</h1>
-          <p class="lead">
-            Manage and Update Contacts 
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!-- this will house my extras -->
+     
+
+
+
+<!-- this will house my extras -->
     <div class="container" id="divThree">
-      <button class="btn-secondary btn-lg btn-block" id="hot">Hotlines/ Emergency Numbers</button>
+      <!-- hotline   -->
+      
+      <button class="btn-dark btn-lg btn-block" id="hot">Hotlines/ Emergency Numbers</button>
       <div id="hotline">
           <div class="card">
               <div class="card-header">
                 Hotlines:
               </div>
-              <!-- i'm going to figure out how to add these dynamically, and then make it an admin only option-->
+              
               <ul class="list-group list-group-flush" id="generateHotline">
               </ul>
               <div class="input-group mb-3" id="adminAdder">
+              <!-- make it an admin only option-->
                   <input type="text" class="form-control" id="searchBar"placeholder="Admin-Add Hotline" aria-label="add Hotline" aria-describedby="button-addon2">
                   <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" id="searchButton">Add</button>
+                    <button class="btn btn-outline-dark" type="button" id="searchButton">Add</button>
                   </div>
               </div>
             </div>
       </div>
+
       <br>
-      <button class="btn-secondary btn-lg btn-block" id="publicLocations">Public Locations Near you! (Comming Soon)</button>
+
+
+
+      <!-- public locations  -->
+      <button class="btn-dark btn-lg btn-block" id="publicLocations">Public Locations Near you! (Comming Soon)</button>
       <div id="public">
         <div class="card">
             <div class="card-header">
@@ -195,8 +198,13 @@
             </ul>
         </div>
       </div>
+      
       <br>
-      <button id="self" class="btn-secondary btn-lg btn-block">Health News</button>
+      
+      
+      
+      <!-- health new formerly self care -->
+      <button id="self" class="btn-dark btn-lg btn-block">Health News</button>
         <div id="care">
             <div class="card">
                 <div class="card-header">
@@ -207,9 +215,15 @@
             </div>
 
         </div>
-      <br>
-      <button id="recipes" class="btn-secondary btn-lg btn-block">Healthy Recipes</button>
-      <div id="food" class="btn-secondary btn-lg btn-block">
+      
+    <br>
+
+
+
+
+    <!-- healthy recipes -->
+      <button id="recipes" class="btn-dark btn-lg btn-block">Healthy Recipes</button>
+      <div id="food" class="btn-dark btn-lg btn-block">
         <div id="foodParam">
             <div class="card">
                 <div class="card-header" id="foodParamHead">
@@ -223,8 +237,14 @@
         <div id="healthParam"></div>
         <div id="recListing"></div>
       </div>
+    
     <br>
-      <button class="btn-secondary btn-lg btn-block" id="future">safeTrek's Future</button>
+    
+      
+    
+    
+    <!-- future of safetrek  -->
+      <button class="btn-dark btn-lg btn-block" id="future">safeTrek's Future</button>
           <div id="fut">
               <div class="card">
                   <div class="card-header">
@@ -238,8 +258,14 @@
               </div>
 
             </div>
+    
     <br>        
-      <button class="btn-secondary btn-lg btn-block" id="accountinfo">Account Info</button>
+    
+    
+    
+    
+    <!-- account info -->
+      <button class="btn-dark btn-lg btn-block" id="accountinfo">Account Info</button>
             <div id="accountinfodiv">
                 <div class="card">
                     <div class="card-header">
@@ -256,9 +282,9 @@
     </div>
     <div class="container" id="divFour">
       <div class="row justify-content-center">
-        <button class="btn-secondary btn-lg btn-block" id="extrasButton" >Extras</button>
-        <button class="btn-secondary btn-lg btn-block" id="home" >Home</button>
-        <button class="btn-secondary btn-lg btn-block" id="LogoutButton">Logout</button>
+        <button class="btn-dark btn-lg btn-block" id="extrasButton" >Extras</button>
+        <button class="btn-dark btn-lg btn-block" id="home" >Home</button>
+        <button class="btn-dark btn-lg btn-block" id="LogoutButton">Logout</button>
 
   
       </div>
@@ -283,14 +309,16 @@
       const auth = firebase.auth();
       const db = firebase.firestore();
 
-      // update firestore settings
-      // db.settings({ timestampsInSnapshots: true });
     </script>
+    <!-- jquery and bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- jquery again  -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <!-- auth file -->
     <script src="assets/javascript/auth.js"></script>
+    <!-- script -->
     <script src="assets/javascript/script.js"></script>
   
   </body>

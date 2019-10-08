@@ -150,6 +150,7 @@ $('#hot').on('click', function() {
 	$('#care').hide();
 	$('#food').hide();
 	$('#fut').hide();
+	$('#accountinfodiv').hide();
 	renderHotline();
 });
 
@@ -195,6 +196,7 @@ $('#publicLocations').on('click', function() {
 	$('#care').hide();
 	$('#food').hide();
 	$('#fut').hide();
+	$('#accountinfodiv').hide();
 });
 
 $('#self').on('click', function() {
@@ -203,6 +205,7 @@ $('#self').on('click', function() {
 	$('#care').show();
 	$('#food').hide();
 	$('#fut').hide();
+	$('#accountinfodiv').hide();
 	healthArt();
 });
 
@@ -237,6 +240,7 @@ $('#recipes').on('click', function() {
 	$('#care').hide();
 	$('#food').show();
 	$('#fut').hide();
+	$('#accountinfodiv').hide();
 
 	renderButtons();
 });
@@ -347,6 +351,7 @@ $('#future').on('click', function() {
 	$('#hotline').hide();
 	$('#care').hide();
 	$('#food').hide();
+	$('#accountinfodiv').hide();
 	$('#fut').show();
 });
 
