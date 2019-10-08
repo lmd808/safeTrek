@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 // variables
 // var setupUI = (user) => {
-// 	if ((user.uid = TfU4bEF3GLaqyWCGlgcMHwFeTDf1)) {
+// 	if ((user.uid = adminOnlyID)) {
 // 		$('adminAdder').show();
 // 	} else {
 // 		$('#adminAdder').hide();
