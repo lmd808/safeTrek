@@ -1,8 +1,9 @@
 // get data
+// db.collection('guides').get().then((snapshot) => {
+// 	setupGuides(snapshot.docs);
+// 	//cycle through the documents
+// });
 
-db.collection('Wellness_Buttons').get().then((snapshot) => {
-	console.log(snapshot.docs);
-});
 // auth status changes
 auth.onAuthStateChanged((user) => {
 	if (user) {
@@ -58,10 +59,19 @@ loginForm.addEventListener('submit', function(e) {
 
 	auth.signInWithEmailAndPassword(email, password).then(function(cred) {
 		// close login and reset form
-		loginForm.reset();
-		$('#divTwo').show();
-		$('#home').hide();
-		$('#divFour').show();
-		$('#divOneL').hide();
+		if (cred) {
+			loginForm.reset();
+			$('#divTwo').show();
+			$('#home').hide();
+			$('#divFour').show();
+			$('#divOneL').hide();
+		} else {
+			// $('myModalLogin').show();
+		}
 	});
 });
+
+// $('#goToSignUp').on('click', function() {
+// 	$('#divOneL').hide();
+// 	$('#divOne').show();
+// });

@@ -4,6 +4,42 @@ body {
 	background-image: url('../images/bg.jpg');
 	background-size: cover;
 }
-.jumbotron-fluid {
-	background-color: rgba(0, 0, 0, .6);
+#divFour {
+	margin-top: 4px;
+	padding-top: 4px;
+	border-top: solid black 2px;
+}
+
+#myHeader {
+	padding-left: 5px;
+	margin-left: 20px;
+	border-left: 3px solid grey;
+}
+#divThree {
+	padding-bottom: 40px;
+}
+.foodParambutton {
+	padding-right: 4px;
+}
+
+.margin {
+	margin: 4px;
+	margin-right: 10px;
+}
+
+.a {
+	text-decoration: none;
+	color: black;
+}
+.a:hover {
+	text-decoration: none;
+	color: grey;
+}
+
+#divTwo {
+	margin-top: 20px;
+}
+
+#init {
+	padding-top: 50px;
 }

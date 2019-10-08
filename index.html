@@ -26,19 +26,23 @@
   </head>
   <body>
     <!-- initial load -->
-    <div class="row">
-      <div class="col-1"></div>
-      <div class="col-1">
-        <img src="assets/images/bear.gif" alt="a duck trecking along" width="50px" height="75px;">
-      </div>
-      <div class="col-1">
+    <div class="row" >
+      <div class="col-1" id="myBufferDiv"></div>
+      <div class="col-1" id="myHeader">
           <h2>safeTrek</h2>
           <h6><em>Trek Safely</em></h6>
+        <!-- <img src="assets/images/bear.gif" alt="a duck trecking along" width="50px" height="75px;"> -->
+      </div>
+      <div class="col-1">
+          <!-- <h2>safeTrek</h2>
+          <h6><em>Trek Safely</em></h6> -->
       </div>
     </div>
+    <div class="container">
     <div class="row" id="init">
         <button class="btn-secondary btn-lg btn-block" id="logInit">Login?</button>
         <button class="btn-secondary btn-lg btn-block" id="signInit">SignUp</button>
+    </div>
     </div>
     <!--this coutainer will house my login div   -->
     <div class="container" id="divOne">
@@ -104,6 +108,24 @@
               <button type="submit" class="btn btn-dark" id="loginButton2">Submit</button>
             </form>
         </div>
+        <div class="modal" tabindex="-1" role="dialog" id="myModalLogin">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">No Current Account!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Oh No! You don't seem to have an account with us. Click the Link Below to sign up with SafeTrek</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" id="goToSignUp">Go To SignUp</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
     </div>
   </div>  
@@ -152,38 +174,71 @@
               <!-- i'm going to figure out how to add these dynamically, and then make it an admin only option-->
               <ul class="list-group list-group-flush" id="generateHotline">
               </ul>
-              <div class="input-group mb-3">
+              <div class="input-group mb-3" id="adminAdder">
                   <input type="text" class="form-control" id="searchBar"placeholder="Admin-Add Hotline" aria-label="add Hotline" aria-describedby="button-addon2">
                   <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" id="searchButton">Add</button>
                   </div>
-                </div>
+              </div>
             </div>
       </div>
       <br>
       <button class="btn-secondary btn-lg btn-block" id="publicLocations">Public Locations Near you! (Comming Soon)</button>
       <div id="public">
-        <h3>Safety on the Go:</h3>
-        <p>Public spaces is a future feature that will offer the user, in live time, open public locations near them. Manytimes, we may be in a situation that makes us uncomfortable, but don't know how to get out of it. In many cases one of the best things you can do is get to a public location with other people present so that you can get the assistance you need.</p>
+        <div class="card">
+            <div class="card-header">
+                Safety on the Go:
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item list-item">
+                    Public spaces is a future feature that will offer the user, in live time, open public locations near them. Manytimes, we may be in a situation that makes us uncomfortable, but don't know how to get out of it. In many cases one of the best things you can do is get to a public location with other people present so that you can get the assistance you need.
+                </li>
+            </ul>
+        </div>
       </div>
       <br>
       <button id="self" class="btn-secondary btn-lg btn-block">Health News</button>
-        <div id="selfCare" class="btn-secondary btn-lg btn-block"></div>
+        <div id="care">
+            <div class="card">
+                <div class="card-header">
+                    Health News: 
+                </div>
+                <ul class="list-group list-group-flush" id="selfCare">
+                </ul>
+            </div>
+
+        </div>
       <br>
       <button id="recipes" class="btn-secondary btn-lg btn-block">Healthy Recipes</button>
       <div id="food" class="btn-secondary btn-lg btn-block">
-        <div id="foodParam"></div>
+        <div id="foodParam">
+            <div class="card">
+                <div class="card-header" id="foodParamHead">
+                    Health News: 
+                </div>
+                <ul class="list-group list-group-flush" id="recUl">
+                </ul>
+            </div>
+        </div>
         <div id="dietParam"></div>
         <div id="healthParam"></div>
         <div id="recListing"></div>
       </div>
     <br>
       <button class="btn-secondary btn-lg btn-block" id="future">safeTrek's Future</button>
-      <div id="fut">
-       <span><h3 style= "text-align: center">Our mission is to promote safe decisions, and prevent dangerous ones using technology and selfCare.</h3></span>
-       <p> The world is a scary place, but safeTrek is working to change that- one button click at a time. In future updates safetrek will feature: open public spaces in your given area, live time tracking w/ contact communication, communications maintained via text message (bye e-mail!).If you have any questions or concerns Please feel free to contact safeTrek staff: <a href="https://www.gmail.com">safetrek001@gmail.com</a></p>
-       <p></p>
-      </div>
+          <div id="fut">
+              <div class="card">
+                  <div class="card-header">
+                      <span><h3 style= "text-align: center">Our mission is to promote safe decisions, and prevent dangerous ones using technology and selfCare.</h3></span>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-item" style="text-indent: 1em">
+                        The world is a scary place, but safeTrek is working to change that- one button click at a time. In future updates safetrek will feature: open public spaces in your given area, live time tracking w/ contact communication, communications maintained via text message (bye e-mail!).If you have any questions or concerns Please feel free to contact safeTrek staff: <a href="https://www.gmail.com" class="a">safetrek001@gmail.com</a>.
+                    </li>
+                  </ul>
+              </div>
+
+            </div>
 
     </div>
     <div class="container" id="divFour">
@@ -218,6 +273,9 @@
       // update firestore settings
       // db.settings({ timestampsInSnapshots: true });
     </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="assets/javascript/auth.js"></script>
     <script src="assets/javascript/script.js"></script>

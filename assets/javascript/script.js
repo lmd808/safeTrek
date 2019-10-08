@@ -8,11 +8,20 @@ $(document).ready(function() {
 });
 
 // variables
+// var setupUI = (user) => {
+// 	if ((user.uid = TfU4bEF3GLaqyWCGlgcMHwFeTDf1)) {
+// 		$('adminAdder').show();
+// 	} else {
+// 		$('#adminAdder').hide();
+// 	}
+// };
 
-var posi = '';
+var posi;
+// id;
 
 $('#logInit').on('click', function() {
 	$('#divOneL').show();
+	$('myModalLogin').hide();
 	$('#init').hide();
 });
 
@@ -21,7 +30,8 @@ $('#signInit').on('click', function() {
 	$('#init').hide();
 });
 
-$('#location').on('click', function() {
+$('#location').on('click', function(event) {
+	event.preventDefault();
 	getLocation();
 });
 
@@ -29,35 +39,38 @@ function getLocation() {
 	//Check if Geolocation is supported
 	if (navigator.geolocation) {
 		//the watchposition() method show the position of the user and update it while is moving
-		var location = navigator.geolocation.watchPosition(showPosition).then(function() {
-			// https://cors-anywhere.herokuapp.com/
-			email();
-		});
+		id = navigator.geolocation.watchPosition(showPosition);
+		// email();
 	} else {
 		//If not, display a message to the user
 		$('#testCord').html('Geolocation is not supported by this browser.');
 	}
-	return location;
 }
 
 //The showPosition() function outputs the Latitude and Longitude
 function showPosition(position) {
 	posi = $('#textCord').html(`Latitude: ${position.coords.latitude} <br> Longitude: ${position.coords.longitude}`);
-	email();
+	console.log(posi);
+	console.log(JSON.stringify(posi[0]));
+	email(JSON.stringify(posi));
 }
 
-function email() {
+function email(location) {
+	console.log(location);
 	let templateParams = {
 		// to: user.email
 		to: 'lditom808@gmail.com',
 		subject: 'New e-mail alert from SafeTrek',
 		html: `
 		<h2>Location alert from SafeTrek</h2>
-		<p>${location}</p>`
+		<p></p>`
 	};
 	emailjs.send('default_service', 'template_3bDgeTFE', templateParams).then(
 		function(response) {
+			console.log(posi);
+			console.log(location);
 			console.log('SUCCESS!', response.status, response.text);
+			navigator.geolocation.clearWatch(id);
 		},
 		function(error) {
 			console.log('FAILED...', error);
@@ -89,7 +102,7 @@ $('#extrasButton').on('click', function() {
 	$('#extrasButton').hide();
 	$('#hotline').hide();
 	$('#public').hide();
-	$('#selfCare').hide();
+	$('#care').hide();
 	$('#food').hide();
 	$('#fut').hide();
 	$('#divTwo').hide();
@@ -105,7 +118,7 @@ $('#home').on('click', function() {
 $('#hot').on('click', function() {
 	$('#hotline').show();
 	$('#public').hide();
-	$('#selfCare').hide();
+	$('#care').hide();
 	$('#food').hide();
 	$('#fut').hide();
 	renderHotline();
@@ -150,7 +163,7 @@ $('#searchButton').on('click', function() {
 $('#publicLocations').on('click', function() {
 	$('#public').show();
 	$('#hotline').hide();
-	$('#selfCare').hide();
+	$('#care').hide();
 	$('#food').hide();
 	$('#fut').hide();
 });
@@ -158,7 +171,7 @@ $('#publicLocations').on('click', function() {
 $('#self').on('click', function() {
 	$('#public').hide();
 	$('#hotline').hide();
-	$('#selfCare').show();
+	$('#care').show();
 	$('#food').hide();
 	$('#fut').hide();
 	healthArt();
@@ -176,21 +189,39 @@ function healthArt() {
 		console.log(data);
 		var result = data.response.docs;
 		for (var i = 0; i < result.length; i++) {
-			var articleDivMas = $('<div>');
+			var articleDivMas = $('<li>');
+			articleDivMas.addClass('list-group-item list-item');
 			var link = $('<a>');
+			link.addClass('a');
 			link.attr('href', result[i]._id);
 			articleDivMas.prepend(link);
-			link.prepend('<h5>' + result[i].byline.original + '</h5>');
-			link.prepend(`<h3>${result[i].headline.main}<h3>`);
+			link.prepend('<h6>' + result[i].byline.original + '</h6>');
+			link.prepend(`<h4>${result[i].headline.main}<h4>`);
 			$('#selfCare').append(articleDivMas);
 		}
 	});
 }
 
+// function renderHotline() {
+// 	$('#generateHotline').empty();
+// 	for (var i = 0; i < hotlineArray.length; i++) {
+// 		// create new list item
+// 		var newLi = $('<li>');
+// 		// add class to list item
+// 		newLi.addClass('list-group-item list-item');
+// 		// add attribute to list item
+// 		newLi.attr('data-name', hotlineArray[i]);
+// 		// add text to list item
+// 		newLi.text(hotlineArray[i]);
+// 		// add list item to div
+// 		$('#generateHotline').prepend(newLi);
+// 	}
+// }
+
 $('#recipes').on('click', function() {
 	$('#public').hide();
 	$('#hotline').hide();
-	$('#selfCare').hide();
+	$('#care').hide();
 	$('#food').show();
 	$('#fut').hide();
 
@@ -301,7 +332,26 @@ $(document).on('click', '.foodParam-button', renderRecipe);
 $('#future').on('click', function() {
 	$('#public').hide();
 	$('#hotline').hide();
-	$('#selfCare').hide();
+	$('#care').hide();
 	$('#food').hide();
 	$('#fut').show();
 });
+
+// const guidelist = document.querySelector('.guides');
+// //set up guides
+// const setupGuides = (data) => {
+// 	let html = '';
+// 	data.forEach((doc) => {
+// 		const guide = doc.data();
+// 		console.log(guide);
+// 		const li = `
+// 			<li>
+// 				<div class = "standard classes for styling">${guide.title}<div>
+// 				<div class = "standard classes for styling">${guide.content}<div>
+// 			</li>
+// 		`;
+// 		html += li
+// 	});
+// sets what we created to the inner html
+// guideList.innerHTML =html
+// };
