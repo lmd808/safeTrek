@@ -1,7 +1,9 @@
 body {
 	margin: 0 auto;
+	font-family: 'Karla', sans-serif;
 	background-image: url('../images/bg.jpg');
 	background-size: cover;
+	color: lightgrey;
 }
 #divFour {
 	margin-top: 4px;
@@ -19,9 +21,22 @@ body {
 	padding-bottom: 40px;
 	background-color: rgba(0, 0, 0, .4);
 }
-.jumbotron {
-	border-radius: 10px;
+
+.myButton {
+	background-color: rgba(128, 128, 128);
+	font-weight: 30px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	color: #ff9966;
 }
+.jumbotron {
+	color: #ff9966;
+	border-radius: 25px;
+}
+/* 
+.jumbotron-fluid {
+	border-radius: 180px;
+} */
 .foodParambutton {
 	padding-right: 4px;
 }
@@ -47,7 +62,10 @@ body {
 }
 
 #init {
-	padding-top: 50px;
+	padding-top: 250px;
+	padding-bottom: 60px;
+	background-image: url(../images/sun.gif);
+	background-position: center;
 }
 
 @media (max-width: 300px) {

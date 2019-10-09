@@ -4,24 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="assests/css/animate.css" />
-    <link rel="stylesheet" href="assests/css/style.css"/>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-    <script type="text/javascript">
-       (function(){
-          emailjs.init("user_LZGYLOBggL5FCDw6Woxte");
-       })();
-    </script>
+    <link href="https://fonts.googleapis.com/css?family=Karla&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="assets/css/animate.css"/>
+    <link rel="stylesheet" href="assets/css/style.css" />
        
     <title>safeTrek</title>
   </head>
@@ -41,9 +33,9 @@
 
     <!-- this is the content that appears in innit (initial loading of the page) -->
     <div class="container">
-    <div class="row" id="init">
-        <button class="btn-dark btn-lg btn-block" id="logInit">Login?</button>
-        <button class="btn-dark btn-lg btn-block" id="signInit">SignUp</button>
+    <div class="row animated fadeIn" id="init">
+        <button class=" btn-dark btn-lg btn-block myButton animated fadeIn" id="logInit">Login?</button>
+        <button class=" btn-dark btn-lg btn-block myButton" id="signInit">SignUp</button>
     </div>
     </div>
 
@@ -64,16 +56,30 @@
           </div>
           <div class="card-body cb" style="background-color: rgba(255,255,255,.4)">
               <form id="signupForm">
+                  <div class="row">
+                      <div class="col">
+                          <div class="form-group">
+                          <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" placeholder="First name" id="firstName">
+                           </div> 
+                      </div>
+                      <div class="col">
+                          <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" placeholder="Last name" id="lastName">
+                           </div> 
+                      </div>
+                    </div>
+                  
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id ="signup-email" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small id="emailHelp" class="form-text ">We'll never share your email with anyone else.</small>
                   </div>
                   <div class="form-group">
                       <label for="exampleInputEmail1">Contact Email address</label>
                       <input type="email" class="form-control" id ="signup-contact" aria-describedby="emailHelp" placeholder="Enter email">
-                      <small id="emailHelp" class="form-text text-muted"></small>
-                    </div>  
+                  </div>  
                   <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="signup-pass" placeholder="Password">
@@ -82,7 +88,7 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Save Login info?</label>
                   </div>
-                  <button type="submit" class="btn btn-dark" id="loginButton">Submit</button>
+                  <button type="submit" class="btn-dark  " id="loginButton">Submit</button>
                 </form>
           </div>
         </div>
@@ -115,7 +121,7 @@
                 <input type="checkbox" class="form-check-input" >
                 <label class="form-check-label" for="exampleCheck1">Save Login info?</label>
               </div>
-              <button type="submit" class="btn btn-dark" id="loginButton2">Submit</button>
+              <button type="submit" class="btn-dark " id="loginButton2">Submit</button>
             </form>
         </div>
 
@@ -133,7 +139,7 @@
         <div class="container">
           <h1 class="display-4">Send Location</h1>
           <p class="lead">
-              <button class="btn-dark btn-lg btn-block" id="location">Send your location to your Contacts</button> 
+              <button class="btn-dark btn-lg btn-block myButton" id="location">Send your location to your Contacts</button> 
           </p>
           <p class="lead" id="textCord">
               
@@ -148,7 +154,7 @@
         <div class="container">
           <h1 class="display-4">Call 911</h1>
           <p class="lead">
-              <a href="tel:+7323797526"> <button class="btn-dark btn-lg btn-block" id="911">Click to call 911!</button> </a> 
+              <a href="tel:+7323797526"> <button class="btn-dark btn-lg btn-block myButton" id="911">Click to call 911!</button> </a> 
           </p>
         </div>
       </div>
@@ -161,7 +167,7 @@
     <div class="container" id="divThree">
       <!-- hotline   -->
       
-      <button class="btn-dark btn-lg btn-block" id="hot">Hotlines/ Emergency Numbers</button>
+      <button class="btn-dark  btn-lg btn-block myButton" id="hot">Hotlines/ Emergency Numbers</button>
       <div id="hotline">
           <div class="card">
               <div class="card-header">
@@ -185,7 +191,7 @@
 
 
       <!-- public locations  -->
-      <button class="btn-dark btn-lg btn-block" id="publicLocations">Public Locations Near you! (Comming Soon)</button>
+      <button class=" btn-dark btn-lg btn-block myButton" id="publicLocations">Public Locations Near you! (Comming Soon)</button>
       <div id="public">
         <div class="card">
             <div class="card-header">
@@ -204,7 +210,7 @@
       
       
       <!-- health new formerly self care -->
-      <button id="self" class="btn-dark btn-lg btn-block">Health News</button>
+      <button id="self" class=" btn-dark btn-lg btn-block myButton">Health News</button>
         <div id="care">
             <div class="card">
                 <div class="card-header">
@@ -222,8 +228,8 @@
 
 
     <!-- healthy recipes -->
-      <button id="recipes" class="btn-dark btn-lg btn-block">Healthy Recipes</button>
-      <div id="food" class="btn-dark btn-lg btn-block">
+      <button id="recipes" class=" btn-dark btn-lg btn-block myButton">Healthy Recipes</button>
+      <div id="food" class=" btn-dark btn-lg btn-block myButton">
         <div id="foodParam">
             <div class="card">
                 <div class="card-header" id="foodParamHead">
@@ -244,7 +250,7 @@
     
     
     <!-- future of safetrek  -->
-      <button class="btn-dark btn-lg btn-block" id="future">safeTrek's Future</button>
+      <button class="btn-dark  btn-lg btn-block myButton" id="future">safeTrek's Future</button>
           <div id="fut">
               <div class="card">
                   <div class="card-header">
@@ -265,7 +271,7 @@
     
     
     <!-- account info -->
-      <button class="btn-dark btn-lg btn-block" id="accountinfo">Account Info</button>
+      <button class=" btn-dark btn-lg btn-block myButton" id="accountinfo">Account Info</button>
             <div id="accountinfodiv">
                 <div class="card">
                     <div class="card-header">
@@ -282,9 +288,9 @@
     </div>
     <div class="container" id="divFour">
       <div class="row justify-content-center">
-        <button class="btn-dark btn-lg btn-block" id="extrasButton" >Extras</button>
-        <button class="btn-dark btn-lg btn-block" id="home" >Home</button>
-        <button class="btn-dark btn-lg btn-block" id="LogoutButton">Logout</button>
+        <button class=" btn-dark btn-lg btn-block myButton" id="extrasButton" >Extras</button>
+        <button class="btn-dark  btn-lg btn-block myButton" id="home" >Home</button>
+        <button class="btn-dark  btn-lg btn-block myButton" id="LogoutButton">Logout</button>
 
   
       </div>
@@ -309,6 +315,12 @@
       const auth = firebase.auth();
       const db = firebase.firestore();
 
+    </script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_LZGYLOBggL5FCDw6Woxte");
+       })();
     </script>
     <!-- jquery and bootstrap -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

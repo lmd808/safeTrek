@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$('<button>').addClass('myButton');
 	$('#init').show();
 	$('#divOne').hide();
 	$('#divTwo').hide();
@@ -16,11 +17,13 @@ function setupUI(user) {
 	if (user) {
 		db.collection('users').doc(user.uid).get().then((doc) => {
 			const html = `
+			<div class="list-group-item list-item" style="text-indent: 1em">Name: ${doc.data().firstName} ${doc.data()
+				.lastName} </div>
 			<div class="list-group-item list-item" style="text-indent: 1em">
-				Logged in as: ${user.email}
+				E-mail: ${user.email}
 			</div>
 			<div class="list-group-item list-item" style="text-indent: 1em">
-				Contact E-mail: <span id=>${doc.data().contact}</span>
+				Emergency Contact: <span id=>${doc.data().contact}</span>
 			</div>
 			`;
 			accountDetails.innerHTML = html;

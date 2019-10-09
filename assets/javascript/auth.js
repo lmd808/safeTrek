@@ -35,7 +35,9 @@ signupForm.addEventListener('submit', function(e) {
 		.createUserWithEmailAndPassword(email, password)
 		.then(function(cred) {
 			return db.collection('users').doc(cred.user.uid).set({
-				contact: signupForm['signup-contact'].value
+				contact: signupForm['signup-contact'].value,
+				firstName: signupForm['firstName'].value,
+				lastName: signupForm['lastName'].value
 				// I can add more info later name, address, contact name
 			});
 		})
