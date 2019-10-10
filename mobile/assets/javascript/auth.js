@@ -47,10 +47,6 @@ signupForm.addEventListener('submit', function(e) {
 			$('#divFour').show();
 			$('#divOne').hide();
 			$('#home').hide();
-			signupForm.querySelector('.signupError').innerHTML = '';
-		})
-		.catch((err) => {
-			signupForm.querySelector('.signupError').innerHTML = err.message;
 		});
 });
 
@@ -74,21 +70,15 @@ loginForm.addEventListener('submit', function(e) {
 	const email = loginForm['login-email'].value;
 	const password = loginForm['login-pass'].value;
 
-	auth
-		.signInWithEmailAndPassword(email, password)
-		.then(function(cred) {
-			// close login and reset form
-			if (cred) {
-				loginForm.reset();
-				$('#divTwo').show();
-				$('#home').hide();
-				$('#divFour').show();
-				$('#divOneL').hide();
-				loginForm.querySelector('.signupError').innerHTML = '';
-			} else {
-			}
-		})
-		.catch((err) => {
-			loginForm.querySelector('.signupError').innerHTML = err.message;
-		});
+	auth.signInWithEmailAndPassword(email, password).then(function(cred) {
+		// close login and reset form
+		if (cred) {
+			loginForm.reset();
+			$('#divTwo').show();
+			$('#home').hide();
+			$('#divFour').show();
+			$('#divOneL').hide();
+		} else {
+		}
+	});
 });

@@ -9,10 +9,8 @@ $(document).ready(function() {
 });
 
 var accountDetails = document.querySelector('#accountDetails');
-var welcomeUser = document.querySelector('.welcomeUser');
 var id;
 var contactEmail;
-var yoName;
 
 // this function pulls info from the data base and forced my contactEmail out of the database
 function setupUI(user) {
@@ -30,23 +28,13 @@ function setupUI(user) {
 			`;
 			accountDetails.innerHTML = html;
 		});
-		// to get my welcome name
-		db.collection('users').doc(user.uid).get().then((doc) => {
-			const nome = `<div style="color:lightgrey; text-align:center;font-size:17px;margin-top:70px;margin-left:150px; margin-right:-80px;">
-			<em>	Welcome, ${doc.data().firstName}!</em> 
-			<div>`;
 
-			welcomeUser.innerHTML = nome;
-		});
-		// to ger my contact email
 		Email = db.collection('users').doc(user.uid).get().then(function(doc) {
 			contactEmail = doc.data().contact;
 		});
 	} else {
 		accountDetails.innerHTML = '';
-		welcomeUser.innerHTML = '';
 	}
-
 	return contactEmail;
 }
 
@@ -65,7 +53,8 @@ $('#signInit').on('click', function() {
 
 // in dive two now
 //click the location button to get location
-$('#location').on('click', function() {
+$('#location').on('click', function(event) {
+	event.preventDefault();
 	getLocation();
 });
 
@@ -83,27 +72,23 @@ function getLocation() {
 		//the watchposition() method show the position of the user and update it while is moving
 		id = navigator.geolocation.watchPosition(showPosition);
 		// call email (this should be moved)
+		email();
 	} else {
 		//If not, display a message to the user
 		$('#testCord').html('Geolocation is not supported by this browser.');
 	}
-	return id;
 }
 
-var lat;
-var long;
 //The showPosition() function outputs the Latitude and Longitude
 function showPosition(position) {
 	$('#textCord').html(`Latitude: ${position.coords.latitude} <br> Longitude: ${position.coords.longitude}`);
-	lat = JSON.stringify(position.coords.latitude);
-	long = JSON.stringify(position.coords.longitude);
-	email();
-	console.log(lat, long);
-	navigator.geolocation.clearWatch(id);
+	// console.log(posi);
+	// console.log(JSON.stringify(posi[0]));
+	// email(JSON.stringify(posi));
 }
 
 // automatically sends an email
-function email() {
+function email(id) {
 	// remove later - using for class demo
 	console.log(contactEmail);
 	// template params
@@ -115,7 +100,7 @@ function email() {
 		// body
 		html: `
 		<h2>Location alert from SafeTrek</h2>
-		<p>Latitude: ${JSON.stringify(lat)}, Longitude: ${JSON.stringify(long)}</p>`
+		<p>${JSON.stringify(id)}/p>`
 	};
 
 	// send - takes three arguments
@@ -240,7 +225,7 @@ function healthArt() {
 		var result = data.response.docs;
 		for (var i = 0; i < result.length; i++) {
 			var articleDivMas = $('<li>');
-			articleDivMas.addClass('list-group-item list-item');
+			articleDivMas.addClass('list-group-item list-item animated');
 			var link = $('<a>');
 			link.addClass('a');
 			link.attr('href', result[i]._id);

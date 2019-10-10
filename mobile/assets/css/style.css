@@ -3,14 +3,8 @@ body {
 	font-family: 'Karla', sans-serif;
 	background-image: url('../images/bg.jpg');
 	background-size: cover;
-	color: #313639;
+	color: gray;
 }
-.card-header {
-	background-color: rgba(255, 255, 255, .8);
-	color: #313639;
-	border-bottom: 2px double #ff6600;
-}
-
 #divFour {
 	margin-top: 4px;
 	padding-top: 4px;
@@ -61,11 +55,11 @@ body {
 
 .a {
 	text-decoration: none;
-	color: #313639;
+	color: black;
 }
 .a:hover {
 	text-decoration: none;
-	color: #313639;
+	color: grey;
 }
 #divOne,
 #divOneL {
@@ -79,7 +73,6 @@ body {
 	padding-bottom: 20px;
 }
 #init {
-	width: 97%;
 	padding-top: 250px;
 	padding-bottom: 60px;
 	background-image: url(../images/sun.gif);
@@ -87,8 +80,8 @@ body {
 }
 #logInit,
 #signInit {
-	color: #ff9966;
-	margin-left: 0px;
+	margin-left: 5px;
+	padding: 35;
 }
 
 .footer {
@@ -101,37 +94,13 @@ body {
 	text-align: center;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 300px) {
+	#init,
 	#divOne,
 	#divOneL,
 	#divTwo,
 	#divThree,
 	#divFour {
 		margin-left: 10px;
-	}
-
-	#init {
-		width: 97%;
-		margin-left: 5px;
-		margin-right: 10px;
-		padding-top: 250px;
-		padding-bottom: 60px;
-		padding-right: 0px;
-		padding-left: 0px;
-	}
-	#myH1 {
-		border-left: 3px solid lightgrey;
-		margin-left: 5px;
-	}
-
-	#myH2 {
-		border-left: 3px solid lightgrey;
-		margin-left: 5px;
-		color: lightgray;
-		padding-left: 15px;
-	}
-	.welcomeUser {
-		margin-left: 20px;
-		margin-right: -5px;
 	}
 }

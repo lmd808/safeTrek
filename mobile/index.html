@@ -20,15 +20,14 @@
   </head>
   <body>
     <!-- initial load -->
-    <div class="row" style="border-bottom:solid lightgrey 3px;">
-      <!-- <div class="col-1" id="myBufferDiv" style="border-bottom:solid lightgrey 3px;"></div> -->
-      <div class="col-sm-6">
+    <div class="row" >
+      <!-- <div class="col-1" id="myBufferDiv"></div> -->
+      <div class="col">
           <img id="myH1" src="assets/images/safetrek.gif" alt="">  
         <!-- <h2>safeTrek</h2> -->
           <h6 id="myH2"><em>Trek Safely</em></h6>
       </div>
-      <div class="col-sm-6 justify-content-right" >
-        <div class="welcomeUser"></div>
+      <div class="col-1">
       </div>
     </div>
 
@@ -37,8 +36,8 @@
     <!-- this is the content that appears in innit (initial loading of the page) -->
     <div class="container animated fadeIn justify-content-center">
     <div class="row animated fadeIn justify-content-center" id="init">
-        <button class=" btn-dark btn-lg btn-block animated fadeIn" id="logInit">Login?</button>
-        <button class=" btn-dark btn-lg btn-block animated fadeIn" id="signInit">SignUp</button>
+        <button class=" btn-dark btn-lg btn-block myButton animated fadeIn" id="logInit">Login?</button>
+        <button class=" btn-dark btn-lg btn-block myButton" id="signInit">SignUp</button>
     </div>
     </div>
 
@@ -90,22 +89,15 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Save Login info?</label>
                   </div>
-                  <div class="form-group">
-                    <button type="submit" class="btn-dark btn-sm" id="loginButton">Submit</button>
-                  </div>
-                  <div class="form-group">
-                    <h6 class="signupError" style="color:#ff6600"></h6> 
-                  </div>
-
-                   
-                  </div>
+                  <button type="submit" class="btn-dark btn-sm myButton" id="loginButton">Submit</button>
                 </form>
           </div>
         </div>
       </div>
     </div>  
-  </div>
-    
+
+
+
 
 
     <!-- this is going to be the container login form -->
@@ -129,14 +121,7 @@
                 <input type="checkbox" class="form-check-input" >
                 <label class="form-check-label" for="exampleCheck1">Save Login info?</label>
               </div>
-              <div class="form-group">
-                <button type="submit" class="btn-dark btn-sm" id="loginButton2">Submit</button>
-              </div>
-              <div class="form-group">
-                <h6 class="signupError" style="color:#ff6600"></h6> 
-              </div>
-
-
+              <button type="submit" class="btn-dark myButton btn-sm" id="loginButton2">Submit</button>
             </form>
         </div>
 
@@ -144,7 +129,6 @@
     </div>
   </div>  
 
-  
 
     <!-- this container will house my trac and location div   -->
     <div class="container " id="divTwo">
@@ -155,7 +139,7 @@
         <div class="col-sm-6 animated slideInLeft ">
             <div class= "jumbotron jumbotron-fluid" style="background-color: rgba(0,0,0,.4)">
                 <div class="container">
-                  <h1 class="display-4 animated glow">Send Location</h1>
+                  <h1 class="display-4">Send Location</h1>
                   <p class="lead">
                       <button class="btn-dark btn-lg btn-block myButton" id="location">Send your location to your Contacts</button> 
                   </p>
@@ -169,9 +153,9 @@
           <!-- Call 911 -->
           <div class="jumbotron jumbotron-fluid" style="background-color: rgba(0,0,0,.4)">
             <div class="container">
-              <h1 class="display-4 animated glow">Call 911</h1>
+              <h1 class="display-4">Call 911</h1>
                   <p class="lead">
-                  <a href="tel:+732-379-7526"> <button class="btn-dark btn-lg btn-block myButton" id="911">Click to call 911!</button> </a> 
+                  <a href="tel:+7323797526"> <button class="btn-dark btn-lg btn-block myButton" id="911">Click to call 911!</button> </a> 
                   </p>
           </div>
         </div>  
@@ -191,19 +175,19 @@
 <!-- this will house my extras -->
     <div class="container" id="divThree">
       <div class="row">
-          <div class="col-sm-6 animated slideInLeft ">
+          <div class="col-6 animated slideInLeft">
           <!-- hotline   -->
       
             <button class="btn-dark  btn-lg btn-block myButton" id="hot">Hotlines/ Emergency Numbers</button>
-              <div id="hotline" style="background-color:rgba(0,0,0,0);">
-                  <div class="card" style="background-color:rgba(0,0,0,0);">
+              <div id="hotline">
+                  <div class="card">
                       <div class="card-header">
                         Hotlines:
                       </div>
                       
                       <ul class="list-group list-group-flush" id="generateHotline">
                       </ul>
-                      <div class="input-group mb-3" class="admin">
+                      <div class="input-group mb-3" id="adminAdder">
                       <!-- make it an admin only option-->
                           <input type="text" class="form-control" id="searchBar"placeholder="Admin-Add Hotline" aria-label="add Hotline" aria-describedby="button-addon2">
                           <div class="input-group-append">
@@ -214,11 +198,11 @@
               </div>
 
           </div>
-          <div class="col-sm-6 animated slideInRight ">
+          <div class="col-6 animated slideInRight">
            <!-- public locations  -->
             <button class=" btn-dark btn-lg btn-block myButton" id="publicLocations">Public Locations Near you! (Comming Soon)</button>
-            <div id="public" style="background-color:rgba(0,0,0,0);">
-              <div class="card" style="background-color:rgba(0,0,0,0);">
+            <div id="public">
+              <div class="card">
                   <div class="card-header">
                       Safety on the Go:
                   </div>
@@ -232,11 +216,11 @@
           </div>
       </div>
       <div class="row">
-          <div class="col-sm-6 animated slideInLeft ">
+          <div class="col-6 animated slideInLeft ">
           <!-- health new formerly self care -->
             <button id="self" class=" btn-dark btn-lg btn-block myButton">Health News</button>
-            <div id="care" style="background-color:rgba(0,0,0,0);">
-                <div class="card" style="background-color:rgba(0,0,0,0);">
+            <div id="care">
+                <div class="card">
                     <div class="card-header">
                         Health News: 
                     </div>
@@ -246,14 +230,14 @@
 
             </div>  
           </div>
-          <div class="col-sm-6 animated slideInRight ">
+          <div class="col-6 animated slideInRight ">
           <!-- healthy recipes -->
             <button id="recipes" class=" btn-dark btn-lg btn-block myButton">Healthy Recipes</button>
             <div id="food" class=" btn-dark btn-lg btn-block myButton">
-              <div id="foodParam" style="background-color:rgba(0,0,0,0);">
-                  <div class="card" style="background-color:rgba(0,0,0,0);">
-                      <div class="card-header list-group-item" id="foodParamHead">
-                          Health Recipes: 
+              <div id="foodParam">
+                  <div class="card">
+                      <div class="card-header" id="foodParamHead">
+                          Health News: 
                       </div>
                       <ul class="list-group list-group-flush" id="recUl">
                       </ul>
@@ -267,30 +251,28 @@
           </div>
       </div>
       <div class="row">
-          <div class="col-sm-6 animated slideInLeft ">
+          <div class="col-6 animated slideInLeft ">
           <!-- future of safetrek  -->
             <button class="btn-dark  btn-lg btn-block myButton" id="future">safeTrek's Future</button>
-            <div id="fut" style="background-color:rgba(0,0,0,0);">
-                <div class="card" style="background-color:rgba(0,0,0,0);">
+            <div id="fut">
+                <div class="card">
                     <div class="card-header">
                         <span><h3 style= "text-align: center">Our mission is to promote safe decisions, and prevent dangerous ones using technology and selfCare.</h3></span>
                     </div>
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item list-item" style="text-indent: 1em">
-                          The world is a scary place, but safeTrek is working to change that- one button click at a time. In future updates safetrek will feature: open public spaces in your given area, live time tracking w/ contact communication, communications maintained via text message (bye e-mail!).If you have any questions or concerns Please feel free to contact safeTrek staff:
-                        </li>
-                        <li class="list-group-item list-item" style="text-align: center;"> <a href="https://www.gmail.com" class="a">safetrek001@gmail.com</a>.
+                          The world is a scary place, but safeTrek is working to change that- one button click at a time. In future updates safetrek will feature: open public spaces in your given area, live time tracking w/ contact communication, communications maintained via text message (bye e-mail!).If you have any questions or concerns Please feel free to contact safeTrek staff: <a href="https://www.gmail.com" class="a">safetrek001@gmail.com</a>.
                       </li>
                     </ul>
                 </div>
 
               </div>
           </div>
-          <div class="col-sm-6 animated slideInRight ">
+          <div class="col-6 animated slideInRight ">
                 <!-- account info -->
                 <button class=" btn-dark btn-lg btn-block myButton" id="accountinfo">Account Info</button>
-                <div id="accountinfodiv" style="background-color:rgba(0,0,0,0);">
-                    <div class="card" style="background-color:rgba(0,0,0,0);">
+                <div id="accountinfodiv">
+                    <div class="card">
                         <div class="card-header">
                             Account Info: 
                         </div>
