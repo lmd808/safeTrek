@@ -141,6 +141,16 @@ function email() {
 //********************************************************************
 //********************************************************************
 //********************************************************************
+// click event in init
+$('#switchToLogin').on('click', function() {
+	$('#divOneL').show();
+	$('#divOne').hide();
+});
+// click events in init
+$('#switchToSignup').on('click', function() {
+	$('#divOneL').hide();
+	$('#divOne').show();
+});
 
 $('#extrasButton').on('click', function() {
 	$('#divThree').show();
