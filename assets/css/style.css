@@ -1,25 +1,30 @@
 body {
 	margin: 0 auto;
+	overflow-x: hidden;
 	font-family: 'Karla', sans-serif;
 	background-image: url('../images/bg.jpg');
 	background-size: cover;
 	color: #313639;
+	box-sizing: border-box;
 }
 .card-header {
 	background-color: rgba(255, 255, 255, .8);
 	color: #313639;
 	border-bottom: 2px double #ff6600;
+	box-sizing: border-box;
 }
 
 #divFour {
 	margin-top: 4px;
 	padding-top: 4px;
 	border-top: solid black 2px;
+	box-sizing: border-box;
 }
 
 #myH1 {
 	border-left: 3px solid lightgrey;
 	margin-left: 100px;
+	box-sizing: border-box;
 }
 
 #myH2 {
@@ -27,10 +32,12 @@ body {
 	margin-left: 100px;
 	color: lightgray;
 	padding-left: 15px;
+	box-sizing: border-box;
 }
 #divThree {
 	padding: 40px;
 	background-color: rgba(0, 0, 0, .4);
+	box-sizing: border-box;
 }
 
 .myButton {
@@ -40,6 +47,7 @@ body {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	color: #ff9966;
+	box-sizing: border-box;
 }
 .myButton:hover {
 	color: #ff884d;
@@ -52,11 +60,13 @@ body {
 .foodParambutton {
 	padding-right: 4px;
 	text-align: center;
+	box-sizing: border-box;
 }
 
 .margin {
 	margin: 4px;
 	margin-right: 10px;
+	box-sizing: border-box;
 }
 
 .a {
@@ -74,9 +84,11 @@ body {
 #divTwo,
 #divThree {
 	margin-top: 20px;
+	box-sizing: border-box;
 }
 #divFour {
 	padding-bottom: 20px;
+	box-sizing: border-box;
 }
 #init {
 	width: 97%;
@@ -84,11 +96,13 @@ body {
 	padding-bottom: 60px;
 	background-image: url(../images/sun.gif);
 	background-position: center;
+	box-sizing: border-box;
 }
 #logInit,
 #signInit {
 	color: #ff9966;
 	margin-left: 0px;
+	box-sizing: border-box;
 }
 
 .footer {
@@ -108,6 +122,7 @@ body {
 	#divThree,
 	#divFour {
 		margin-left: 10px;
+		box-sizing: border-box;
 	}
 
 	#init {
@@ -118,10 +133,12 @@ body {
 		padding-bottom: 60px;
 		padding-right: 0px;
 		padding-left: 0px;
+		box-sizing: border-box;
 	}
 	#myH1 {
 		border-left: 3px solid lightgrey;
 		margin-left: 5px;
+		box-sizing: border-box;
 	}
 
 	#myH2 {
@@ -129,9 +146,15 @@ body {
 		margin-left: 5px;
 		color: lightgray;
 		padding-left: 15px;
+		box-sizing: border-box;
 	}
 	.welcomeUser {
 		margin-left: 20px;
 		margin-right: -5px;
+		box-sizing: border-box;
 	}
+}
+
+.box {
+	box-sizing: border-box;
 }

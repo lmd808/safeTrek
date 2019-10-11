@@ -32,7 +32,7 @@ function setupUI(user) {
 		});
 		// to get my welcome name
 		db.collection('users').doc(user.uid).get().then((doc) => {
-			const nome = `<div style="color:lightgrey; text-align:center;font-size:17px;margin-top:70px;margin-left:150px; margin-right:-80px;">
+			const nome = `<div style="color:lightgrey; text-align:right;font-size:17px;margin-top:70px; padding-right:70px; box-sizing:border-box;" class="box">
 			<em>	Welcome, ${doc.data().firstName}!</em> 
 			<div>`;
 
@@ -163,6 +163,8 @@ $('#extrasButton').on('click', function() {
 	$('#food').hide();
 	$('#fut').hide();
 	$('#divTwo').hide();
+	$('#aff').hide();
+	$('#jokes').hide();
 });
 
 $('#home').on('click', function() {
@@ -179,6 +181,8 @@ $('#hot').on('click', function() {
 	$('#food').hide();
 	$('#fut').hide();
 	$('#accountinfodiv').hide();
+	$('#aff').hide();
+	$('#jokes').hide();
 	renderHotline();
 });
 
@@ -225,6 +229,8 @@ $('#publicLocations').on('click', function() {
 	$('#food').hide();
 	$('#fut').hide();
 	$('#accountinfodiv').hide();
+	$('#aff').hide();
+	$('#jokes').hide();
 });
 
 $('#self').on('click', function() {
@@ -234,6 +240,8 @@ $('#self').on('click', function() {
 	$('#food').hide();
 	$('#fut').hide();
 	$('#accountinfodiv').hide();
+	$('#aff').hide();
+	$('#jokes').hide();
 	healthArt();
 });
 
@@ -268,6 +276,8 @@ $('#recipes').on('click', function() {
 	$('#care').hide();
 	$('#food').show();
 	$('#fut').hide();
+	$('#aff').hide();
+	$('#jokes').hide();
 	$('#accountinfodiv').hide();
 
 	renderButtons();
@@ -276,8 +286,6 @@ $('#recipes').on('click', function() {
 function renderRecipe() {
 	$('#recListing').empty();
 	var foodParam = $(this).data('name');
-	// var dietParam = $(this).data('name');
-	// var healthParam = $(this).data('name');
 
 	var queryURL = `https://api.edamam.com/search?q=${foodParam}&app_id=$ca6c2fc3&app_key=$3b0533c7d1f78b8e4f74741432545a65&from=0&to=3&calories=591-722&health=alcohol-free`;
 
@@ -326,8 +334,7 @@ var foodParamArray = [
 	'Broccoli',
 	'Salmon'
 ];
-// var dietParamArray = [ 'high-protein', 'high-fiber', 'low-fat', 'low-carb', 'low-sodium' ];
-// var healthParamArray = [ 'tree-nut-free', 'gluten-free', 'peanutFree', 'none' ];
+
 function renderButtons() {
 	// clear the div
 	$('#foodParam').empty();
@@ -337,7 +344,7 @@ function renderButtons() {
 		//create buttons for animals
 		var foodParamButton = $('<button>');
 		//slap on a class
-		foodParamButton.addClass('foodParam-button btn btn-dark animated fadeIn margin');
+		foodParamButton.addClass('foodParam-button btn btn-dark animated fadeIn margin box-sizing: border-box;');
 		// Adding a data-attribute
 		foodParamButton.attr('data-name', foodParamArray[i]);
 		// pushes animal name to array
@@ -345,33 +352,9 @@ function renderButtons() {
 		// append the buttons to the div
 		$('#foodParam').append(foodParamButton);
 	}
-	// for (var i = 0; i < dietParamArray.length; i++) {
-	// 	//create buttons for animals
-	// 	var dietParamButton = $('<button>');
-	// 	//slap on a class
-	// 	dietParamButton.addClass('dietParam-button btn btn-dark animated bounceIn margin');
-	// 	// Adding a data-attribute
-	// 	dietParamButton.attr('data-name', dietParamArray[i]);
-	// 	// pushes animal name to array
-	// 	dietParamButton.text(dietParamArray[i]);
-	// 	// append the buttons to the div
-	// 	$('#dietParam').append(dietParamButton);
-	// }
-	// for (var i = 0; i < healthParamArray.length; i++) {
-	// 	//create buttons for animals
-	// 	var healthParamButton = $('<button>');
-	// 	//slap on a class
-	// 	healthParamButton.addClass('healthParam-button btn btn-dark animated bounceIn margin');
-	// 	// Adding a data-attribute
-	// 	healthParamButton.attr('data-name', healthParamArray[i]);
-	// 	// pushes animal name to array
-	// 	healthParamButton.text(healthParamArray[i]);
-	// 	// append the buttons to the div
-	// 	$('#healthParam').append(healthParamButton);
-	// }
 }
 
-// renders gif when I click on the animal button
+// renders gif when I click on the rec button
 $(document).on('click', '.foodParam-button', renderRecipe);
 
 $('#future').on('click', function() {
@@ -380,6 +363,8 @@ $('#future').on('click', function() {
 	$('#care').hide();
 	$('#food').hide();
 	$('#accountinfodiv').hide();
+	$('#aff').hide();
+	$('#jokes').hide();
 	$('#fut').show();
 });
 
@@ -389,6 +374,8 @@ $('#accountinfo').on('click', function() {
 	$('#care').hide();
 	$('#food').hide();
 	$('#fut').hide();
+	$('#aff').hide();
+	$('#jokes').hide();
 	$('#accountinfodiv').show();
 });
 
@@ -399,23 +386,164 @@ $('#myH1').on('click', function() {
 	$('#food').hide();
 	$('#fut').hide();
 	$('#accountinfodiv').hide();
+	$('#aff').hide();
+	$('#jokes').hide();
 });
 
-// const guidelist = document.querySelector('.guides');
-// //set up guides
-// const setupGuides = (data) => {
-// 	let html = '';
-// 	data.forEach((doc) => {
-// 		const guide = doc.data();
-// 		console.log(guide);
-// 		const li = `
-// 			<li>
-// 				<div class = "standard classes for styling">${guide.title}<div>
-// 				<div class = "standard classes for styling">${guide.content}<div>
-// 			</li>
-// 		`;
-// 		html += li
-// 	});
-// sets what we created to the inner html
-// guideList.innerHTML =html
-// };
+// jokeapi
+
+// renders jokes
+// tomorrow i will finish this and then work on css + some mobile response changes
+
+function renderJokes() {
+	$('#jokeListing').empty();
+	var jokeCatParam = $(this).data('name');
+
+	var settings = {
+		async: true,
+		crossDomain: true,
+		url: `https://sv443.net/jokeapi/category/${jokeCatParam}?blacklistFlags=nsfw/race/suicide/sex/drugs/murder/death/jew/cancer/black/pedophile?format=json`,
+		method: 'GET',
+		headers: {
+			'x-rapidapi-host': 'jokeapi.p.rapidapi.com',
+			'x-rapidapi-key': 'ee93abecedmsh9d4eadc04d257fap145e2ejsn9aebc1b37ca7'
+		}
+	};
+
+	$.ajax(settings).done(function(data) {
+		console.log(data);
+		// for (var i = 0; i < data.length; i++) {
+		// add a new div
+		var newJokeDiv = $('<div>');
+		// add a paragraph
+		var p1 = $('<p style="text-align:center;">');
+		//
+		// prepend to div
+		var setup = JSON.stringify(data.setup);
+		var delivery = JSON.stringify(data.delivery);
+		var joke = JSON.stringify(data.joke);
+
+		if (data.setup && data.delivery) {
+			p1.prepend(setup + '<br>' + delivery);
+		} else {
+			p1.prepend(joke);
+		}
+
+		newJokeDiv.prepend(p1);
+		// newRecDiv.prepend(`${p3}`);
+		$('#jokeListing').prepend(newJokeDiv);
+		// }
+	});
+}
+
+$('#joke').on('click', function() {
+	$('#public').hide();
+	$('#hotline').hide();
+	$('#care').hide();
+	$('#food').hide();
+	$('#fut').hide();
+	$('#accountinfodiv').hide();
+	$('#aff').hide();
+	$('#jokes').show();
+	$('#jokeParam').html('');
+	renderJokeButtons();
+});
+
+var jokeParamArray = [ 'Programming', 'Miscellaneous', 'Any' ];
+
+function renderJokeButtons() {
+	// clear the div
+	// Looping through the array of jokes
+	for (var i = 0; i < jokeParamArray.length; i++) {
+		//create buttons for animals
+		var jokeCatButton = $('<button>');
+		//slap on a class
+		jokeCatButton.addClass('jokeButtons btn btn-dark animated fadeIn margin box');
+		// Adding a data-attribute
+		jokeCatButton.attr('data-name', jokeParamArray[i]);
+		// pushes animal name to array
+		jokeCatButton.text(jokeParamArray[i]);
+		// append the buttons to the div
+		$('#jokeParam').prepend(jokeCatButton);
+	}
+}
+
+$(document).on('click', '.jokeButtons', renderJokes);
+// end jokes
+
+// affirmationsssssss
+// affirmation
+$('#affirmation').on('click', function() {
+	$('#public').hide();
+	$('#hotline').hide();
+	$('#care').hide();
+	$('#food').hide();
+	$('#fut').hide();
+	$('#accountinfodiv').hide();
+	$('#aff').show();
+	$('#jokes').hide();
+	$('#affirmListing').html('');
+	renderAffirmation();
+});
+
+var affArray = [
+	'As I become more and more aware of myself as eternal consciousness, I become more peaceful and at ease with all that happens in my life.',
+	'Physical reality reflects this peace back to me.',
+	'Everything in my life is exactly should be',
+	'My relationships are loving and harmonious',
+	'I am at peace. I trust in the process of life',
+	'I am connected to divine love and wisdom.',
+	'I am harmonious and at peace regardless of my surroundings',
+	'My life is blossoming in perfection',
+	'I use my emotions, thoughts and challenges to lead me to deeper, more interesting places within myself.',
+	'I am grateful for all that I am',
+	'I am a channel for loving peaceful energy',
+	'I radiate with loving kindness and life mirrors that back to me',
+	'Everything will work out for me.',
+	'I am a winner.',
+	'The tools I need to succeed are in my possession.',
+	'There is nobody better to get the job done than me.',
+	'I have faith in my social skills.',
+	'Other people will not take advantage of me.',
+	'I have confidence in my skills.',
+	'I am not afraid to be wrong.',
+	'Happiness is within my grasp.',
+	'I am confident in the presence of others.',
+	'Success will be my driving force.',
+	'The success of others will not make me jealous. My time will come.',
+	'I will speak with confidence and self-assurance.',
+	'I will say “No” when I do not have the time or inclination to act.',
+	'The only person who can defeat me is myself.',
+	'I dare to be different.',
+	'My every desire is achievable.',
+	'Even outside my comfort zone, I will be comfortable in my own skin.',
+	'If I fail, I will fail forward.',
+	'My confidence knows no limits.',
+	'I do not need other people for happiness.',
+	'I choose hope over fear.',
+	'Positivity is a choice that I choose to make.',
+	"I will not take other people's negativity personally.",
+	'My commitment to myself is real.'
+];
+
+function renderAffirmation() {
+	// clear the div
+	// $('affirmListing').empty();
+	randomAff = affArray[Math.floor(Math.random() * affArray.length)];
+	// new heading
+	var newhead = $('<h3>');
+	// slap on a class
+	newhead.addClass('animated fadeIn myButton');
+	// pushes animal name to array
+	newhead.text(randomAff);
+	// append the buttons to the div
+	$('#affirmListing').prepend(newhead);
+}
+
+var docWidth = document.documentElement.offsetWidth;
+
+[].forEach.call(document.querySelectorAll('*'), function(el) {
+	if (el.offsetWidth > docWidth) {
+		console.log(el);
+	}
+});

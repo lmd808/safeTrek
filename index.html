@@ -20,14 +20,13 @@
   </head>
   <body>
     <!-- initial load -->
-    <div class="row" style="border-bottom:solid lightgrey 3px;">
-      <!-- <div class="col-1" id="myBufferDiv" style="border-bottom:solid lightgrey 3px;"></div> -->
-      <div class="col-sm-6">
+    <div class="row box" style="border-bottom:solid lightgrey 3px;">
+      <div class="col-sm-6 box">
           <img id="myH1" src="assets/images/safetrek.gif" alt="">  
         <!-- <h2>safeTrek</h2> -->
           <h6 id="myH2"><em>Trek Safely</em></h6>
       </div>
-      <div class="col-sm-6 justify-content-right" >
+      <div class="col-sm-5" >
         <div class="welcomeUser"></div>
       </div>
     </div>
@@ -92,7 +91,7 @@
                   </div>
                   <div class="form-group">
                     <button type="submit" class="btn-dark btn-sm" id="loginButton">Submit</button>
-                    <button type="button" class="btn-dark btn-sm" id="switchToLogin">Go to Login</button>
+                     <button type="button" class="btn-dark btn-sm" id="switchToLogin">Go to Login</button>
                   </div>
                   <div class="form-group">
                     <h6 class="signupError" style="color:#ff6600"></h6> 
@@ -132,7 +131,6 @@
               </div>
               <div class="form-group">
                 <button type="submit" class="btn-dark btn-sm" id="loginButton2">Submit</button>
-                <button type="button" class="btn-dark btn-sm" id="switchToSignup">Go to Signup</button>
               </div>
               <div class="form-group">
                 <h6 class="signupError" style="color:#ff6600"></h6> 
@@ -267,6 +265,30 @@
             </div>
           
           </div>
+      </div>
+      <!-- jokes -->
+      <div class="row">
+        <div class="col-sm-6 animated slideInLeft">
+          <button class="btn-dark btn-lg btn-block myButton" id="joke">Jokes</button>
+          <div id="jokes" class=" btn-dark btn-lg btn-block myButton">
+            <div id="jokeParam" style="background-color:rgba(0,0,0,0);">
+                <div class="card" style="background-color:rgba(0,0,0,0);">
+                  <div id="jokeListing"></div>
+                </div>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-sm-6 animated slideInRight">
+          <button class="btn-dark btn-lg btn-block myButton" id="affirmation">Positive Affirmations</button>
+          <div id="aff" class=" btn-dark btn-lg btn-block myButton">
+              <div style="background-color:rgba(0,0,0,0);">
+                  <div class="card" style="background-color:rgba(0,0,0,0);">
+                    <div id="affirmListing" class ="justify-content-center"></div>
+                  </div>
+                  </div>
+              </div>
+        </div>
       </div>
       <div class="row">
           <div class="col-sm-6 animated slideInLeft ">
