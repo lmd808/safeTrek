@@ -457,7 +457,7 @@ function renderJokeButtons() {
 		//create buttons
 		var jokeCatButton = $('<button>');
 		//slap on a class
-		jokeCatButton.addClass('jokeButtons btn btn-dark animated fadeIn margin box color');
+		jokeCatButton.addClass('jokeButtons btn btn-dark animated fadeIn margin box');
 		// Adding a data-attribute
 		jokeCatButton.attr('data-name', jokeParamArray[i]);
 		// pushes aname to array
