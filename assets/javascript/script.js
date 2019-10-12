@@ -32,7 +32,7 @@ function setupUI(user) {
 		});
 		// to get my welcome name
 		db.collection('users').doc(user.uid).get().then((doc) => {
-			const nome = `<div class ="">
+			const nome = `<div class= "futurehide" style="justify-content-right; padding-top:69px; padding-left:325px;">
 			<em class="nome box">	Welcome, ${doc.data().firstName}!</em> 
 			<div>`;
 
@@ -112,10 +112,10 @@ function email() {
 		// who is the email going to?
 		to: contactEmail,
 		// subject
-		subject: 'New e-mail alert from SafeTrek',
+		subject: 'URGENT: New Location Alert from SafeTrek',
 		// body
 		html: `
-		<h2>Location alert from SafeTrek</h2>
+		<h2>You have been send the following location parameters from safeTrek:</h2>
 		<p>Latitude: ${JSON.stringify(lat)}, Longitude: ${JSON.stringify(long)}</p>`
 	};
 
