@@ -32,8 +32,8 @@ function setupUI(user) {
 		});
 		// to get my welcome name
 		db.collection('users').doc(user.uid).get().then((doc) => {
-			const nome = `<div style="color:lightgrey; text-align:right;font-size:17px;margin-top:70px; padding-right:70px; box-sizing:border-box;" class="box">
-			<em>	Welcome, ${doc.data().firstName}!</em> 
+			const nome = `<div class ="">
+			<em class="nome box">	Welcome, ${doc.data().firstName}!</em> 
 			<div>`;
 
 			welcomeUser.innerHTML = nome;
@@ -95,6 +95,7 @@ var long;
 //The showPosition() function outputs the Latitude and Longitude
 function showPosition(position) {
 	$('#textCord').html(`Latitude: ${position.coords.latitude} <br> Longitude: ${position.coords.longitude}`);
+	$('#textcord').attr('style', 'text-align:center');
 	lat = JSON.stringify(position.coords.latitude);
 	long = JSON.stringify(position.coords.longitude);
 	email();
@@ -212,11 +213,11 @@ function renderHotline() {
 }
 
 $('#searchButton').on('click', function() {
-	// new value of an animal button
+	// new value of an button
 	var newHotline = $('#searchBar').val().trim();
 	// add to my array
 	hotlineArray.push(newHotline);
-	// will make the new animal into a button
+	// kill me
 	renderHotline();
 	// clear the search bar
 	$('#searchBar').val('');
@@ -308,7 +309,7 @@ function renderRecipe() {
 			// add button
 			var button = $('<button>');
 			// add classes
-			button.addClass('btn-secondary btn-lg btn-block');
+			button.addClass('btn-secondary btn-lg btn-block color');
 			// prepend button to link
 			link.prepend(button);
 			// add title name
@@ -339,15 +340,15 @@ function renderButtons() {
 	// clear the div
 	$('#foodParam').empty();
 
-	// Looping through the array of animals
+	// Looping through the array
 	for (var i = 0; i < foodParamArray.length; i++) {
-		//create buttons for animals
+		//create buttons
 		var foodParamButton = $('<button>');
 		//slap on a class
-		foodParamButton.addClass('foodParam-button btn btn-dark animated fadeIn margin box-sizing: border-box;');
+		foodParamButton.addClass('foodParam-button btn btn-dark animated fadeIn;');
 		// Adding a data-attribute
 		foodParamButton.attr('data-name', foodParamArray[i]);
-		// pushes animal name to array
+		// pushes name to array
 		foodParamButton.text(foodParamArray[i]);
 		// append the buttons to the div
 		$('#foodParam').append(foodParamButton);
@@ -453,13 +454,13 @@ function renderJokeButtons() {
 	// clear the div
 	// Looping through the array of jokes
 	for (var i = 0; i < jokeParamArray.length; i++) {
-		//create buttons for animals
+		//create buttons
 		var jokeCatButton = $('<button>');
 		//slap on a class
-		jokeCatButton.addClass('jokeButtons btn btn-dark animated fadeIn margin box');
+		jokeCatButton.addClass('jokeButtons btn btn-dark animated fadeIn margin box color');
 		// Adding a data-attribute
 		jokeCatButton.attr('data-name', jokeParamArray[i]);
-		// pushes animal name to array
+		// pushes aname to array
 		jokeCatButton.text(jokeParamArray[i]);
 		// append the buttons to the div
 		$('#jokeParam').prepend(jokeCatButton);
@@ -530,7 +531,7 @@ function renderAffirmation() {
 	var newhead = $('<h3>');
 	// slap on a class
 	newhead.addClass('animated fadeIn myButton');
-	// pushes animal name to array
+	// pushes name to array
 	newhead.text(randomAff);
 	// append the buttons to the div
 	$('#affirmListing').prepend(newhead);
