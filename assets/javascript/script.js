@@ -396,7 +396,6 @@ $('#myH1').on('click', function() {
 // tomorrow i will finish this and then work on css + some mobile response changes
 
 function renderJokes() {
-	$('#jokeListing').empty();
 	var jokeCatParam = $(this).data('name');
 
 	var settings = {
@@ -412,27 +411,26 @@ function renderJokes() {
 
 	$.ajax(settings).done(function(data) {
 		console.log(data);
-		// for (var i = 0; i < data.length; i++) {
-		// add a new div
+		// clear div
+		$('#jokeListing').html('');
+		// new div
 		var newJokeDiv = $('<div>');
 		// add a paragraph
 		var p1 = $('<p style="text-align:center;">');
-		//
+		//preprend
+		newJokeDiv.prepend(p1);
 		// prepend to div
 		var setup = JSON.stringify(data.setup);
 		var delivery = JSON.stringify(data.delivery);
 		var joke = JSON.stringify(data.joke);
-
+		console.log(setup, delivery, joke);
 		if (data.setup && data.delivery) {
 			p1.prepend(setup + '<br>' + delivery);
 		} else {
 			p1.prepend(joke);
 		}
 
-		newJokeDiv.prepend(p1);
-		// newRecDiv.prepend(`${p3}`);
 		$('#jokeListing').prepend(newJokeDiv);
-		// }
 	});
 }
 
@@ -471,7 +469,6 @@ function renderJokeButtons() {
 $(document).on('click', '.jokeButtons', renderJokes);
 // end jokes
 
-// affirmationsssssss
 // affirmation
 $('#affirmation').on('click', function() {
 	$('#public').hide();
@@ -528,7 +525,6 @@ var affArray = [
 
 function renderAffirmation() {
 	// clear the div
-	// $('affirmListing').empty();
 	randomAff = affArray[Math.floor(Math.random() * affArray.length)];
 	// new heading
 	var newhead = $('<h3>');
@@ -540,6 +536,7 @@ function renderAffirmation() {
 	$('#affirmListing').prepend(newhead);
 }
 
+// to check which one of my fucking divs was overflowing
 var docWidth = document.documentElement.offsetWidth;
 
 [].forEach.call(document.querySelectorAll('*'), function(el) {
