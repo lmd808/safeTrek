@@ -30,10 +30,9 @@ function setupUI(user) {
 			`;
 			accountDetails.innerHTML = html;
 		});
-		// to get my welcome name
 		db.collection('users').doc(user.uid).get().then((doc) => {
-			const nome = `<div class= "futurehide" style="justify-content-right; padding-top:69px; padding-left:325px;">
-			<em class="nome box">	Welcome, ${doc.data().firstName}!</em> 
+			const nome = `<div style="color:lightgrey; text-align:center;font-size:17px;margin-top:70px;margin-left:150px; margin-right:-80px;">
+			<em>	Welcome, ${doc.data().firstName}!</em> 
 			<div>`;
 
 			welcomeUser.innerHTML = nome;
