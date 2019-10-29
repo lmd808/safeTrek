@@ -1,9 +1,3 @@
-// get data
-// .onsnapshot allows real time updating from firebase onto our webpage
-// db.collection('guides').onsnapshot(snapshot) => {
-// 	setupGuides(snapshot.docs);
-// 	//cycle through the documents
-// });
 
 // auth status changes
 auth.onAuthStateChanged((user) => {
